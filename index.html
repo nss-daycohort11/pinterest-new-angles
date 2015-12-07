@@ -8,7 +8,7 @@
 	</head>
 	<!--basic app-->
 	<body ng-app="NewAngles">
-		<section>
+		<section ng-controller="loginCtrl">
 			<div class="container-fluid">
 				<div ng-view></div>
 			</div>
@@ -21,5 +21,6 @@
 		<script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
 
 		<script src="app/app.js"></script>
+		<script src="app/controllers/login.js"></script>
 	</body>
 </html>

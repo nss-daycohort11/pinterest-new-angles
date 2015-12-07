@@ -5,10 +5,7 @@ app.config(["$routeProvider", function ($routeProvider) {
       when('/newAngles/login', {
         templateUrl: 'partials/login.html',
         controller: 'loginCtrl'
-      }).
-      when('', {
-        templateUrl: 'partials/',
-        controller: 'AppCtrl'
-      });
+      })
+      .otherwise('/newAngles/login');
 
 }]);//end of config
