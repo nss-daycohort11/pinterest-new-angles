@@ -1,10 +1,10 @@
-app.controller("loginCtrl", ["", function ($scope) {
+app.controller("loginCtrl", ["$scope", function ($scope) {
 
+		console.log("contoller is linked");
 
-	login = function () {
-
-
-}
+	$scope.login = function () {
+		console.log("login function");
+	};	
 
 
 
