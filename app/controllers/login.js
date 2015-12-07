@@ -3,7 +3,7 @@ app.controller("loginCtrl", ["$scope", "$firebaseAuth", function ($scope, $fireb
 	console.log("contoller is linked");
 
   	//login
-  	$scope.login = function () {
+  	$scope.facebookLogin = function () {
 		var ref = new Firebase("https://newangles.firebaseio.com");
 
 	 	// create an instance of the authentication service
