@@ -1,8 +1,13 @@
-app.controller("loginCtrl", ["$scope", "$firebaseAuth", function ($scope, $firebaseAuth) {
+app.controller("loginCtrl", ["$scope", "$firebaseAuth", "getUid",
+	function ($scope, $firebaseAuth, authFactory) {
 
 	console.log("contoller is linked");
+	$scope.login = function () {
 
-  	//login
+		console.log("Success!!");
+	};
+
+  	//facebook login
   	$scope.facebookLogin = function () {
 		var ref = new Firebase("https://newangles.firebaseio.com");
 
@@ -10,10 +15,13 @@ app.controller("loginCtrl", ["$scope", "$firebaseAuth", function ($scope, $fireb
 	  	var auth = $firebaseAuth(ref);
   		auth.$authWithOAuthPopup("facebook").then(function (authData){
   			console.log("logged in as:", authData.uid);
+  			//sent uid to the factory to use later
+  			authFactory.addUid(authData.uid);
   		}).catch(function(error){
   			console.log("authentication failed:", error);
   		});
   	};
+
 
 
 

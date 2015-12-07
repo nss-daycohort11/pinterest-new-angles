@@ -1,13 +1,10 @@
-app.factory("getUid", function() {
+app.factory("getUid", [function () {
 
   var userId = '';
-
-  var ref = new Firebase("https://newangles.firebaseio.com");
-  var auth = $firebaseAuth(ref);
-
+  //id comming from login.js facebooklogin
   return {
-    addUid: function(authData) {
-      userId = authData.uid
+    addUid: function(id) {
+      userId = id;
       return userId;
     },
     getUid: function() {
@@ -15,4 +12,5 @@ app.factory("getUid", function() {
       return userId;
     }
   };
-});
+
+}]);//end of factory
