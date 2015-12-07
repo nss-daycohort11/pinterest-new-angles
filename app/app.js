@@ -5,6 +5,10 @@ app.config(["$routeProvider", function ($routeProvider) {
       when('/newAngles/login', {
         templateUrl: 'partials/login.html',
         controller: 'loginCtrl'
+      }).
+      when('/newAngles/home', {
+      	templateUrl: 'partials/home.html',
+      	controller: 'homeCtrl'
       })
       .otherwise('/newAngles/login');
 

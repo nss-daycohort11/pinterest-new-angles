@@ -1,8 +1,12 @@
 app.controller("loginCtrl", ["$scope", "$firebaseAuth", function ($scope, $firebaseAuth) {
 
 	console.log("contoller is linked");
+	$scope.login = function () {
 
-  	//login
+		console.log("Success!!");
+	};
+
+  	//facebook login
   	$scope.facebookLogin = function () {
 		var ref = new Firebase("https://newangles.firebaseio.com");
 
