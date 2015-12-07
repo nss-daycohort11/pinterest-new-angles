@@ -10,6 +10,17 @@
     </div><!-- /.col-lg-6 -->
   </div><!-- /.row -->
 </form>
-
-
+<div ng-repeat="image in info | filter: query">
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src={{info.image}} alt={{info.url}}>
+      <div class="caption">
+        <h3>{{info.decription}}</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a><a href="#" class="btn btn-default" role="button">Delete</a></p>
+      </div>
+    </div>
+  </div>
+</div>
   
