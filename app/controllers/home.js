@@ -7,7 +7,8 @@ app.controller("homeCtrl", ["$scope", "getUid","$firebaseArray",
 	var currentCategory
 	var ref = new Firebase("https://newangles.firebaseio.com/");
 	//making pin variable available for html
-	$scope.pins = $firebaseArray(ref);
+	var pinsRef = ref.child("/pins");
+	$scope.pins = $firebaseArray(pinsRef);
 
 	//making pins in firebase. pinit and category come from input in home.html
 	$scope.Pinit = function (pinit, category) {

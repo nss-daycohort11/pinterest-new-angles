@@ -14,21 +14,23 @@
 
 
 <!--image area to add-->
-<div class="row">
-  <div class="col-sm-6 col-md-4">
+
+  <div class="col-sm-4">
     <div class="thumbnail">
-        <input type="text" ng-model="pinit">
-        <input type="text" ng-model="category">
+        <input type="text" ng-model="pinit">Enter Image URL
+        <input type="text" ng-model="category">Category
         <p><a href="#" class="btn btn-primary" role="button" ng-click="Pinit(pinit, category); Categories(category)">Pin it</a><a href="#" class="btn btn-default" role="button">Delete</a></p>
     </div>
   </div>
 </div>
 <div class="row" ng-repeat="object in pins" ng-model="pins">
-  <div class="col-sm-6 col-md-4" ng-repeat="(key, value) in object">
-        {{key}}
+  <div class="col-sm-6 col-md-4" >
+    <div class="thumbnail">
+        <img src= "{{object.url}}">
+    </div>    
       <a href="#" class="btn btn-default" role="button">Delete</a>
   </div>
-</div>
+
 
 
 
