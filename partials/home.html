@@ -13,23 +13,28 @@
   </div><!-- /.row -->
 </form>
 
+
 <!--image area to add-->
-<div class="row">
-  <div class="col-sm-6 col-md-4">
+
+  <div class="col-sm-4">
     <div class="thumbnail">
-        <input type="text" ng-model="pinit">
-        <input type="text" ng-model="category">
+        <input type="text" ng-model="pinit" placeholder="Enter Image URL">
+        <input type="text" ng-model="category" placeholder="Category">
         <p><a href="#" class="btn btn-danger" role="button" ng-click="Pinit(pinit, category); Categories(category)">Pin it</a>
         </p>
     </div>
   </div>
 </div>
-<div class="row" ng-repeat="object in pins" ng-model="pins">
-  <div class="col-sm-6 col-md-4" ng-repeat="(key, value) in object">
-        {{key}}
+
+<div class="row" ng-repeat="pin in pins | filter: {userId: userIdFromScope }" ng-model="pins">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail" id="{{pin.userId}}">
+        <img src= "{{pin.url}}">
+    </div>    
       <a href="#" class="btn btn-default" role="button">Delete</a>
   </div>
 </div>
+
 
 
   
