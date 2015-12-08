@@ -37,5 +37,10 @@ app.controller("homeCtrl", ["$scope", "getUid","$firebaseArray",
 		// $scope.selectedPin = $scope.pins.$getRecord($scope.);
 	});
 
+	//Logout
+	$scope.Logout = function () {
+		ref.unauth();
+		console.log("logged out");
+	}
 
 }]); //end of contoller

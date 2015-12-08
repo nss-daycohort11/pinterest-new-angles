@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="input-group">
-        <a href="/#/newAngles/login">Login</a>
+        <a href="/#/newAngles/login" ng-click="Logout()">Log Out</a>
         <input type="text" class="form-control input-search">
         <span class="input-group-btn">
           <button class="btn btn-search" type="button"><i class="glyphicon glyphicon-search"></i></button>
@@ -19,7 +19,8 @@
     <div class="thumbnail">
         <input type="text" ng-model="pinit">
         <input type="text" ng-model="category">
-        <p><a href="#" class="btn btn-primary" role="button" ng-click="Pinit(pinit, category); Categories(category)">Pin it</a><a href="#" class="btn btn-default" role="button">Delete</a></p>
+        <p><a href="#" class="btn btn-danger" role="button" ng-click="Pinit(pinit, category); Categories(category)">Pin it</a>
+        </p>
     </div>
   </div>
 </div>
