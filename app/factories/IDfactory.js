@@ -1,7 +1,7 @@
 app.factory("getUid", [function () {
 
   var userId = '';
-  //id comming from login.js facebooklogin
+ 
   return {
     addUid: function(id) {
       userId = id;
