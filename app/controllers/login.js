@@ -15,9 +15,9 @@ app.controller("loginCtrl", ["$scope", "$firebaseAuth", "getUid",
 	  	var auth = $firebaseAuth(ref);
   		auth.$authWithOAuthPopup("facebook").then(function (authData){
   			console.log("logged in as:", authData.uid);
-        ref.push(authData.uid);
+        ref.child(authData.uid).set(authData);
   			//sent uid to the factory to use later
-  			authFactory.addUid(authData.uid);
+  			// authFactory.addUid(authData.uid);
       
   		}).catch(function(error){
   			console.log("authentication failed:", error);
