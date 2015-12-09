@@ -91,12 +91,5 @@ function ($scope, authFactory, $firebaseArray) {
 		console.log("logged out");
 	}
 
-	$scope.Search = function (searchInput) {
-		var newPins = new Firebase("https://newangles.firebaseio.com/pins");
-		var currentSearch = searchInput;
-
-
-		console.log("currentSearch", currentSearch);
-	};//Search end
 
 }]); //end of contoller
