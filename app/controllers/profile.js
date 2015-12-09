@@ -16,6 +16,13 @@ function ($scope, authFactory, $firebaseArray) {
 	var ref = new Firebase("https://newangles.firebaseio.com/users");
 	$scope.userName = ref.getAuth().facebook.displayName;
 	console.log("displayName", $scope.userName);
+
+	$scope.deletePin = function (pin) {
+     	console.log("pin", pin);
+		//remove the item targeted in the array
+		$scope.pins.$remove(pin);
+     }
+     
 }]); //end of contoller
 
 

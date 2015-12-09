@@ -53,6 +53,8 @@ function ($scope, authFactory, $firebaseArray) {
 		// Getting user info
 		var userId = ref.getAuth().uid;
 		console.log("userId", ref.getAuth().uid);
+		// Create the category ref url
+		var categoryRef = new Firebase("https://newangles.firebaseio.com/categories");
 		//Pins ref url
 		var pinRef = new Firebase("https://newangles.firebaseio.com/pins");
 
@@ -66,7 +68,8 @@ function ($scope, authFactory, $firebaseArray) {
 		
 
 
-     $scope.deletePin = function ( pin ) {
+     $scope.deletePin = function (pin) {
+     	console.log("pin", pin);
 		//remove the item targeted in the array
 		$scope.pins.$remove(pin);
      }

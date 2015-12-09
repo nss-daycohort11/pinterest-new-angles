@@ -22,7 +22,6 @@
 <div class="col-sm-3" ng-repeat="pin in pins | filter: {userId: userId} | unique:'url'" ng-model="pins">
     <div class="thumbnail" id="{{pin.userId}}">
         <img src= "{{pin.url}}">
-      <button class="btn btn-danger">Pin it</button>
       <button class="btn btn-deafult" ng-click="deletePin(pin)">Delete</button>
     </div>
 </div>
