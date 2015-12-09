@@ -3,6 +3,8 @@ function ($scope, authFactory, $firebaseArray) {
 	//global variables
 	$scope.pinUrl = "";
 	$scope.pinCategory = "";
+	$scope.searchInput = "";
+	//searchInput is to declare the variable for the filter
 	
 	var userId;
 	var key;
@@ -74,3 +76,8 @@ function ($scope, authFactory, $firebaseArray) {
 	}
 
 }]); //end of contoller
+
+
+
+// adding the new select box to attach to firebase
+// add search functionality

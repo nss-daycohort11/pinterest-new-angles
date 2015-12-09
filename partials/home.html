@@ -4,9 +4,10 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="input-group"> 
-        <input type="text" class="form-control input-search">
+
+
+        <input type="text" class="form-control input-search" placeholder="Search" ng-model="searchInput">
         <span class="input-group-btn">
-          <button class="btn btn-search" type="button"><i class="glyphicon glyphicon-search"></i></button>
         </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
@@ -19,28 +20,46 @@
   <div class="col-sm-6">
     <div class="thumbnail">
 
-        <input type="text" ng-model="pinUrl">
-        <select>
-          <option value="categories">Select Category</option>
-        </select>  
-        <p>
-          <button class="btn btn-primary" 
-                  role="button" 
-                  ng-click="Pinit()">Pin it</button>
-        </p>
+      <input type="text" ng-model="pinUrl" class="form-control" placeholder="Pin http://">
+      <select ng-model="pinCategory">
+          <option value="Animals">Animals</option>
+          <option value="Travel">Travel</option>
+          <option value="Pets">Pets</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Weather">Weather</option>
+          <option value="Food">Food</option>
+          <option value="Restaurants">Restaurants</option>
+          <option value="Art">Art</option>
+          <option value="Technologies">Technologies</option>
+        </select> 
+    
+      <p>
+        <button class="btn btn-danger" 
+                role="button" 
+                ng-click="Pinit()">Add Pin
+        </button>
+      </p>
     </div>
   </div>
 </div>
 
 <!--individual pin-->
-<div class="row" ng-repeat="pin in pins | filter: {userId: userId} | unquie:'url'" ng-model="pins">
+
+<div class="row" ng-repeat="pin in pins  | filter: searchInput | unique:'url'" ng-model="pins">
   <div class="col-sm-6">
     <div class="thumbnail" id="{{pin.userId}}">
         <img src= "{{pin.url}}">
+      <button class="btn btn-danger">Pin it</button>
       <button ng-click="deletePin(pin)">Delete</button>
     </div>
   </div>
 </div>
+
+
+
+
+
+
 
 
 
