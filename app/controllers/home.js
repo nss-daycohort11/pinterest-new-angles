@@ -3,20 +3,20 @@ function ($scope, authFactory, $firebaseArray) {
 	//global variables
 	$scope.pinUrl = "";
 	$scope.pinCategory = "";
-	$scope.pins = "";
-	var userId;
+	
+	
 	var key;
 	var currentCategory;
 	
 	var ref = new Firebase("https://newangles.firebaseio.com/");
+	$scope.pins = $firebaseArray(ref);
+	// $scope.userIdFromScope = ref.getAuth().uid;
+	
 
-	$scope.userIdFromScope = ref.getAuth().uid;
-	console.log("userIdFromScope", userIdFromScope);
-
-	$scope.pins.$loaded().then(function(){
-		console.log("$scope.pins", $scope.pins);
-		// $scope.selectedPin = $scope.pins.$getRecord($scope.);
-	});
+	// $scope.pins.$loaded().then(function(){
+	// 	console.log("$scope.pins", $scope.pins);
+	// 	// $scope.selectedPin = $scope.pins.$getRecord($scope.);
+	// });
 	
 	//ref for $scope.pins to use in html
 	// var ref = new Firebase("https://newangles.firebaseio.com/pins");
@@ -25,10 +25,10 @@ function ($scope, authFactory, $firebaseArray) {
 
 		
 
-	//making pins in firebase. pinit and category come from input in home.html
+	//making pins in firebase. 
 	$scope.Pinit = function () {
 		// Getting user info
-		var userId = ref.getAuth().uid;
+		$scope.userId = ref.getAuth().uid;
 		console.log("userId", ref.getAuth().uid);
 
 		// Create the category ref url
