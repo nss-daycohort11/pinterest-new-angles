@@ -14,7 +14,7 @@
 
 <!--image area to add-->
 <div class="row">
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-6">
     <div class="thumbnail">
         <input type="text" ng-model="pinUrl">
         <input type="text" ng-model="pinCategory">
@@ -22,15 +22,14 @@
           <button class="btn btn-primary" 
                   role="button" 
                   ng-click="Pinit()">Pin it</button>
-          <button class="btn btn-default" role="button">Delete</button>
         </p>
     </div>
   </div>
 </div>
-<div class="row" ng-repeat="pin in pins" ng-model="pins">
-  <div class="col-sm-6 col-md-4" ng-repeat="(key, value) in pin">
-        {{key}}
-      <!-- <a href="#" class="btn btn-default" role="button">Delete</a> -->
+<div class="row" ng-repeat="pin in pins | filter: {userId: userId}" ng-model="pins">
+  <div class="col-sm-6"
+  <div class="thumbnail" id="{{pin.usreeId}}">
+    <img src= "{{pin.url}}">
       <button ng-click="deletePin(pin)">Delete</button>
   </div>
 </div>
