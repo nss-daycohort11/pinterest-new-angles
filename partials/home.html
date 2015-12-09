@@ -1,6 +1,9 @@
 <!--nav search -->
 <form>
   <a href="/#/newAngles/login" ng-click="Logout()">Log Out</a>
+  <br>
+  <a href="/#/newAngles/profile">Profile</a>
+
   <div class="row">
     <div class="col-lg-12">
       <div class="input-group"> 
@@ -16,8 +19,8 @@
 
 <!--Pin it section-->
 <div class="row">
-  <div class="col-sm-6">
-    <div class="thumbnail">
+  <div class="col-sm-4">
+    <div class="add-pin">
       <input type="text" ng-model="pinUrl" class="form-control" placeholder="Pin http://">
       <input type="text" ng-model="pinCategory">
       <p>
@@ -31,14 +34,12 @@
 </div>
           
 <!--individual pin-->
-<div class="row" ng-repeat="pin in pins | filter: {userId: userId} | unique:'url'" ng-model="pins">
-  <div class="col-sm-6">
+<div class="col-sm-4" ng-repeat="pin in pins | filter: {userId: userId} | unique:'url'" ng-model="pins">
     <div class="thumbnail" id="{{pin.userId}}">
-        <img src= "{{pin.url}}">
-      <button class="btn btn-danger">Pin it</button>
+        <img src= "{{pin.url}}" id="{{pin.url}}">
+      <button class="btn btn-danger" ng-click="PinitToProfile(pin.url)">Pin it</button>
       <button ng-click="deletePin(pin)">Delete</button>
     </div>
-  </div>
 </div>
 
 
