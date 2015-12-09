@@ -13,6 +13,9 @@ function ($scope, authFactory, $firebaseArray) {
 	$scope.pins = $firebaseArray(ref);
 	console.log("pins", $scope.pins);
 
+	var ref = new Firebase("https://newangles.firebaseio.com/users");
+	$scope.userName = ref.getAuth().facebook.displayName;
+	console.log("displayName", $scope.userName);
 }]); //end of contoller
 
 

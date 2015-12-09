@@ -1,10 +1,28 @@
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="input-group"> 
+        <a href="/#/newAngles/home">
+          <img src="../images/Pinterest-logo.png" class="logo">
+        </a>
+        <input type="text" class="form-control" id="input-search" placeholder="Search" ng-model="searchInput">
+        <span class="input-group-btn">
+          <button class="btn btn-search" type="button" ng-click="Search(searchInput)"><i class="glyphicon glyphicon-search"></i></button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+</form>
+<!---->
+<div id="userName">
+	<h2>{{userName}}</h2>
+</div>
+
+
 <!--individual pin-->
-<a href="/#/newAngles/home">Home</a>
-<h2>Your Pins</h2>
-<div class="col-sm-4" ng-repeat="pin in pins | filter: {userId: userId} | unique:'url'" ng-model="pins">
+<div class="col-sm-3" ng-repeat="pin in pins | filter: {userId: userId} | unique:'url'" ng-model="pins">
     <div class="thumbnail" id="{{pin.userId}}">
         <img src= "{{pin.url}}">
       <button class="btn btn-danger">Pin it</button>
-      <button ng-click="deletePin(pin)">Delete</button>
+      <button class="btn btn-deafult" ng-click="deletePin(pin)">Delete</button>
     </div>
 </div>
