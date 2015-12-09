@@ -3,6 +3,8 @@ function ($scope, authFactory, $firebaseArray) {
 	//global variables
 	$scope.pinUrl = "";
 	$scope.pinCategory = "";
+	$scope.searchInput = "";
+	//searchInput is to declare the variable for the filter
 	
 	var userId;
 	var key;
@@ -13,14 +15,6 @@ function ($scope, authFactory, $firebaseArray) {
 	$scope.pins = $firebaseArray(ref);
 	console.log("pins", $scope.pins);
 	// $scope.userIdFromScope = ref.getAuth().uid;
-	
-
-	// $scope.pins.$loaded().then(function(){
-	// 	console.log("$scope.pins", $scope.pins);
-	// 	// $scope.selectedPin = $scope.pins.$getRecord($scope.);
-	// });
-	
-
 		
 
 	//making pins in firebase. 
@@ -47,6 +41,7 @@ function ($scope, authFactory, $firebaseArray) {
 			});
 		};//end Pinit function.
 
+	//pinning to profile
 	$scope.PinitToProfile = function (pinUrl) {
 		var currentPinUrl = pinUrl;
 		console.log("currentPinUrl", currentPinUrl);
@@ -65,14 +60,6 @@ function ($scope, authFactory, $firebaseArray) {
 				"category": $scope.pinCategory
 			});
 	};
-		
-
-
-     $scope.deletePin = function (pin) {
-     	console.log("pin", pin);
-		//remove the item targeted in the array
-		$scope.pins.$remove(pin);
-     }
 	
 
 
@@ -81,7 +68,7 @@ function ($scope, authFactory, $firebaseArray) {
 		console.log("currentCategory", currentCategory);
 		ref.child("/categories/").push(currentCategory);
 
-	}
+	};
 
 	
 
@@ -89,7 +76,11 @@ function ($scope, authFactory, $firebaseArray) {
 	$scope.Logout = function () {
 		ref.unauth();
 		console.log("logged out");
-	}
+	};
+
 
 
 }]); //end of contoller
+
+
+

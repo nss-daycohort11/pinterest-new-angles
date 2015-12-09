@@ -10,9 +10,8 @@
         <a href="/#/newAngles/home">
           <img src="../images/Pinterest-logo.png" class="logo">
         </a>
-        <input type="text" class="form-control" id="input-search" placeholder="Search" ng-model="searchInput">
+        <input type="text" class="form-control input-search" placeholder="Search" ng-model="searchInput">
         <span class="input-group-btn">
-          <button class="btn btn-search" type="button"><i class="glyphicon glyphicon-search"></i></button>
         </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
@@ -40,18 +39,17 @@
                   ng-click="Pinit()">Add Pin
           </button>
         </p>
+    </div>
   </div>
 </div>
-          
+
 <!--individual pin-->
-<div class="col-sm-3" ng-repeat="pin in pins | filter: {userId: userId} | unique:'url'" ng-model="pins">
+<div class="col-sm-3" ng-repeat="pin in pins  | filter: searchInput | unique:'url'" ng-model="pins">
     <div class="thumbnail" id="{{pin.userId}}">
       <button class="btn btn-danger" ng-click="PinitToProfile(pin.url)">Pin it</button>
-      <!-- <button class="btn btn-deafult" ng-click="deletePin(pin)">Delete</button> -->
         <img src= "{{pin.url}}" id="{{pin.url}}">
     </div>
 </div>
-
 
 
 
