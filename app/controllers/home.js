@@ -1,8 +1,18 @@
 app.controller("homeCtrl", ["$scope", "getUid", "$firebaseArray", 
 function ($scope, authFactory, $firebaseArray) {
-
+	//global variables
 	$scope.pinUrl = "";
 	$scope.pinCategory = "";
+
+	var userId;
+	var key;
+	var currentCategory;
+	//ref for $scope.pins to use in html
+	var ref = new Firebase("https://newangles.firebaseio.com/pins");
+	//global pin variable available for html
+	$scope.pins = $firebaseArray(ref);
+
+
 
 	//making pins in firebase. pinit and category come from input in home.html
 	$scope.Pinit = function () {
@@ -10,43 +20,33 @@ function ($scope, authFactory, $firebaseArray) {
 		var userId = ref.getAuth().uid;
 		console.log("userId", ref.getAuth().uid);
 
-		// Create the category
+		// Create the category ref url
 		var categoryRef = new Firebase("https://newangles.firebaseio.com/categories");
+		//Pins ref url
 		var pinRef = new Firebase("https://newangles.firebaseio.com/pins");
 
+		//pushing to category to firebase
 		categoryRef.push({
 			"userId": userId,
 			"name": $scope.pinCategory
-		}, function (a,b,c) {
-			// var categoryRef = new Firebase("https://newangles.firebaseio.com/categories");
-			//we have to decide whether we do a new call on firebase and repush up the categories or just do a drop down select box
-			console.log(arguments);
-			pinRef.push({
+			});
+		//pushing to pin to firebase
+		pinRef.push({
 				"url": $scope.pinUrl,
 				"userId": userId,
 				"category": $scope.pinCategory
 			});
-		});
+		};//end Pinit function.
 
 
-		//pushing to firebase
 		
-	};
+
 
      $scope.deletePin = function ( pin ) {
 		//remove the item targeted in the array
 		$scope.pins.$remove(pin);
      }
-
 	
-	console.log("home controller is linked");
-	var userId;
-	var key;
-	var currentCategory;
-	
-	var ref = new Firebase("https://newangles.firebaseio.com/pins");
-	//making pin variable available for html
-	$scope.pins = $firebaseArray(ref);
 
 
 	//making categories key in firebase.
@@ -56,10 +56,10 @@ function ($scope, authFactory, $firebaseArray) {
 
 	}
 
-	$scope.pins.$loaded().then(function(){
-		console.log("$scope.pins", $scope.pins);
-		// $scope.selectedPin = $scope.pins.$getRecord($scope.);
-	});
+	// $scope.pins.$loaded().then(function(){
+	// 	console.log("$scope.pins", $scope.pins);
+	// 	// $scope.selectedPin = $scope.pins.$getRecord($scope.);
+	// });
 
 
 }]); //end of contoller
