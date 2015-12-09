@@ -1,4 +1,4 @@
-var app = angular.module("NewAngles", ["ngRoute", "firebase"]);
+var app = angular.module("NewAngles", ["ngRoute", "firebase", "angular.filter"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
 	$routeProvider.

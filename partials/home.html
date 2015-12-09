@@ -20,7 +20,9 @@
     <div class="thumbnail">
 
         <input type="text" ng-model="pinUrl">
-        <input type="text" ng-model="pinCategory">
+        <select>
+          <option value="categories">Select Category</option>
+        </select>  
         <p>
           <button class="btn btn-primary" 
                   role="button" 
@@ -31,15 +33,15 @@
 </div>
 
 <!--individual pin-->
-<div class="row" ng-repeat="pin in pins | filter: {userId: userId}" ng-model="pins">
+<div class="row" ng-repeat="pin in pins | filter: {userId: userId} | unquie:'url'" ng-model="pins">
   <div class="col-sm-6">
     <div class="thumbnail" id="{{pin.userId}}">
         <img src= "{{pin.url}}">
-        <!-- {{key}} -->
       <button ng-click="deletePin(pin)">Delete</button>
     </div>
   </div>
 </div>
+
 
 
 
