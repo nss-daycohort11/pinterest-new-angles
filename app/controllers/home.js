@@ -39,6 +39,8 @@ function ($scope, authFactory, $firebaseArray) {
 				"userId": userId,
 				"category": $scope.pinCategory
 			});
+		//empty the input after the click.
+		$scope.pinUrl = "";
 		};//end Pinit function.
 
 	//pinning to profile
