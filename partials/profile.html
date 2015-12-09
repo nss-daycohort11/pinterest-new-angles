@@ -1,0 +1,10 @@
+<!--individual pin-->
+<div class="row" ng-repeat="pin in pins | filter: {userId: userId} | unique:'url'" ng-model="pins">
+  <div class="col-sm-6">
+    <div class="thumbnail" id="{{pin.userId}}">
+        <img src= "{{pin.url}}">
+      <button class="btn btn-danger">Pin it</button>
+      <button ng-click="deletePin(pin)">Delete</button>
+    </div>
+  </div>
+</div>
