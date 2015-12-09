@@ -1,7 +1,7 @@
 <!--nav search -->
 <form>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
       <div class="input-group">
         <a href="/#/newAngles/login" ng-click="Logout()">Log Out</a>
         <input type="text" class="form-control input-search">
@@ -14,24 +14,30 @@
 </form>
 
 
-<!--image area to add-->
-
-  <div class="col-sm-4">
+<!--Pin it section-->
+<div class="row">
+  <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-        <input type="text" ng-model="pinit" placeholder="Enter Image URL">
-        <input type="text" ng-model="category" placeholder="Category">
-        <p><a href="#" class="btn btn-danger" role="button" ng-click="Pinit(pinit, category); Categories(category)">Pin it</a>
-        </p>
+      <input type="text" ng-model="pinUrl">
+      <input type="text" ng-model="pinCategory">
+      <p>
+        <button class="btn btn-primary" 
+                role="button" 
+                ng-click="Pinit()">Pin it
+        </button>
+      </p>
     </div>
   </div>
 </div>
-
+          
+<!--individual pin-->
 <div class="row" ng-repeat="pin in pins | filter: {userId: userIdFromScope }" ng-model="pins">
-  <div class="col-sm-6">
+  <div class="col-sm-6 col-md-4" ng-repeat="(key, value) in pin">
     <div class="thumbnail" id="{{pin.userId}}">
         <img src= "{{pin.url}}">
-    </div>    
-      <a href="#" class="btn btn-default" role="button">Delete</a>
+        {{key}}
+      <button ng-click="deletePin(pin)">Delete</button>
+    </div>
   </div>
 </div>
 
