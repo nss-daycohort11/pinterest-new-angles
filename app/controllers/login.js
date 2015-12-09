@@ -1,5 +1,5 @@
-app.controller("loginCtrl", ["$scope", "$firebaseAuth", "getUid",
-	function ($scope, $firebaseAuth, authFactory) {
+app.controller("loginCtrl", ["$scope", "$firebaseAuth", "getUid", '$firebaseArray',
+	function ($scope, $firebaseAuth, authFactory, $firebaseArray) {
 
 	console.log("contoller is linked");
 	$scope.login = function () {
@@ -15,6 +15,8 @@ app.controller("loginCtrl", ["$scope", "$firebaseAuth", "getUid",
 	  	var auth = $firebaseAuth(ref);
   		auth.$authWithOAuthPopup("facebook").then(function (authData){
   			console.log("logged in as:", authData.uid);
+
+        //setting data inside current user.
         ref.child(authData.uid).set(authData);
   			//sent uid to the factory to use later
   			// authFactory.addUid(authData.uid);

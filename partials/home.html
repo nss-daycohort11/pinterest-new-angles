@@ -1,8 +1,9 @@
 <!--nav search -->
 <form>
+  <a href="/#/newAngles/login" ng-click="Logout()">Log Out</a>
   <div class="row">
-    <div class="col-lg-6">
-      <div class="input-group">
+    <div class="col-lg-12">
+      <div class="input-group"> 
         <input type="text" class="form-control input-search">
         <span class="input-group-btn">
           <button class="btn btn-search" type="button"><i class="glyphicon glyphicon-search"></i></button>
@@ -12,10 +13,12 @@
   </div><!-- /.row -->
 </form>
 
-<!--image area to add-->
+
+<!--Pin it section-->
 <div class="row">
   <div class="col-sm-6">
     <div class="thumbnail">
+
         <input type="text" ng-model="pinUrl">
         <input type="text" ng-model="pinCategory">
         <p>
@@ -26,13 +29,18 @@
     </div>
   </div>
 </div>
+
+<!--individual pin-->
 <div class="row" ng-repeat="pin in pins | filter: {userId: userId}" ng-model="pins">
-  <div class="col-sm-6"
-  <div class="thumbnail" id="{{pin.usreeId}}">
-    <img src= "{{pin.url}}">
+  <div class="col-sm-6">
+    <div class="thumbnail" id="{{pin.userId}}">
+        <img src= "{{pin.url}}">
+        <!-- {{key}} -->
       <button ng-click="deletePin(pin)">Delete</button>
+    </div>
   </div>
 </div>
+
 
 
   
