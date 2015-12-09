@@ -47,7 +47,22 @@ function ($scope, authFactory, $firebaseArray) {
 			});
 		};//end Pinit function.
 
+	$scope.PinitToProfile = function (pinUrl) {
+		var currentPinUrl = pinUrl;
+		console.log("currentPinUrl", currentPinUrl);
+		// Getting user info
+		var userId = ref.getAuth().uid;
+		console.log("userId", ref.getAuth().uid);
+		//Pins ref url
+		var pinRef = new Firebase("https://newangles.firebaseio.com/pins");
 
+		//pushing to pin to firebase
+		pinRef.push({
+				"url": currentPinUrl,
+				"userId": userId,
+				"category": $scope.pinCategory
+			});
+	};
 		
 
 
@@ -72,5 +87,13 @@ function ($scope, authFactory, $firebaseArray) {
 		ref.unauth();
 		console.log("logged out");
 	}
+
+	$scope.Search = function (searchInput) {
+		var newPins = new Firebase("https://newangles.firebaseio.com/pins");
+		var currentSearch = searchInput;
+
+
+		console.log("currentSearch", currentSearch);
+	};//Search end
 
 }]); //end of contoller

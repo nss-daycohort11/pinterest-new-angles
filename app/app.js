@@ -1,4 +1,4 @@
-var app = angular.module("NewAngles", ["ngRoute", "firebase"]);
+var app = angular.module("NewAngles", ["ngRoute", "firebase", "angular.filter"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
 	$routeProvider.
@@ -9,6 +9,10 @@ app.config(["$routeProvider", function ($routeProvider) {
       when('/newAngles/home', {
       	templateUrl: 'partials/home.html',
       	controller: 'homeCtrl'
+      }).
+      when('/newAngles/profile', {
+        templateUrl: 'partials/profile.html',
+        controller: 'profileCtrl'
       })
       .otherwise('/newAngles/login');
 
